@@ -1,0 +1,31 @@
+.Container {
+    background-color: #f2f6fa;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    /*align-items: center;*/
+}
+
+.Bold {
+    font-weight: bolder;
+}
+
+
+@media screen and (max-width: 1440px) and (min-width: 1024px) {
+    .Container {
+        /*padding: 16px;*/
+        /*background-color: red;*/
+        /*max-width: 1440px;*/
+    }
+}
+
+
+@media screen and (max-width: 700px) {
+    .Container {
+        flex-wrap: wrap;
+
+        /*padding: 16px;*/
+        /*background-color: red;*/
+        /*max-width: 1440px;*/
+    }
+}

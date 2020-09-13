@@ -1,0 +1,69 @@
+.Container {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px 0 20px;
+}
+
+.Bold {
+    font-weight: bolder;
+}
+
+.Subheading {
+    text-align: center;
+    border-width: 0 0 2px 0;
+    border-color: #ebedf2;
+    border-style: solid;
+    margin: 0 20px 0 20px;
+}
+
+.SubContent {
+    margin: 10px 8px 10px 8px;
+}
+
+.FilterSection {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px 0 5px 0;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+
+.FilterButton {
+    background-color: #62c487;
+    height: 34px;
+    width: 80px;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    text-transform: capitalize;
+}
+
+.FlexWrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.Card {
+    width: 16rem;
+    padding: 20px;
+    margin: 10px
+}
+
+.logoContainer {
+    background-color: #f2f6fa;
+}
+
+@media screen and (max-width: 700px) {
+    .Card {
+        width: 240px;
+        margin: 10px 0 10px 0;
+        /*padding: 16px;*/
+        /*background-color: red;*/
+        /*max-width: 1440px;*/
+    }
+}

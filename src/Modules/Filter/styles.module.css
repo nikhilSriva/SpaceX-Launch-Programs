@@ -1,0 +1,69 @@
+.Container {
+    background-color: #fff;
+    display: flex;
+    max-width: 240px;
+    flex-direction: column;
+    padding: 0 20px 0 20px;
+
+}
+
+.Bold {
+    font-weight: bolder;
+}
+
+.Subheading {
+    text-align: center;
+    border-width: 0 0 2px 0;
+    border-color: #ebedf2;
+    border-style: solid;
+    margin: 0 20px 0 20px;
+}
+
+.SubContent {
+    margin: 10px 8px 10px 8px;
+}
+
+.FilterSection {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px 0 5px 0;
+    justify-content: flex-start;
+    align-items: center;
+
+}
+
+.FilterButton {
+    background-color: #62c487;
+    height: 34px;
+    width: 80px;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    text-transform: capitalize;
+    cursor: pointer;
+}
+
+.FilterButtonSelected {
+    background-color: #599e71;
+
+}
+
+.FilterButton:hover {
+    background-color: #599e71;
+    animation-name: filter-button-bg-animation;
+    animation-duration: 500ms;
+    animation-fill-mode: forwards;
+
+}
+
+@keyframes filter-button-bg-animation {
+    from {
+        background-color: #62c487;
+    }
+    to {
+        background-color: #599e71;
+    }
+}
