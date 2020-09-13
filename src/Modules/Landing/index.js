@@ -1,7 +1,7 @@
 import React from "react";
 import classes from './styles.module.css'
 import Filter from "../Filter";
-import LaunchCardSection from "../LauchCardSection";
+import LaunchCardSection from "../LaunchCardSection";
 import axios from "axios";
 import {withRouter} from 'react-router-dom'
 
@@ -12,15 +12,16 @@ class Landing extends React.Component {
     }
 
     fetchData = (limit = 10, filters = '') => {
+        this.setState({loading: true});
         axios
             .get(`https://api.spacexdata.com/v3/launches?limit=${limit}&${filters}`)
             .then(res => {
                 console.log('Data', res.data);
-                this.setState({data: res.data})
+                this.setState({data: res.data, loading: false})
             })
             .catch(e => {
                 console.log('Error while fetching data ', e)
-                //     })
+                this.setState({loading: false})
             })
     };
 

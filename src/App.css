@@ -1,0 +1,10 @@
+.Content {
+    padding: 10px;
+}
+
+@media screen and (min-width: 1440px) {
+    .Content {
+        max-width: 1440px;
+        margin: 0 auto;
+    }
+}
