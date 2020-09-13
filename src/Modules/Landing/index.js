@@ -11,10 +11,9 @@ class Landing extends React.Component {
         this.state = {}
     }
 
-
-    componentDidMount() {
+    fetchData = (limit = 10, filters = '') => {
         axios
-            .get('https://api.spacexdata.com/v3/launches?limit=10')
+            .get(`https://api.spacexdata.com/v3/launches?limit=${limit}&${filters}`)
             .then(res => {
                 console.log('Data', res.data);
                 this.setState({data: res.data})
@@ -23,6 +22,15 @@ class Landing extends React.Component {
                 console.log('Error while fetching data ', e)
                 //     })
             })
+    };
+
+
+    componentDidMount() {
+        this.props.history.listen((location, action) => {
+            this.fetchData(10, location.pathname?.substr(1))
+
+        });
+        this.fetchData(10)
     }
 
     render() {

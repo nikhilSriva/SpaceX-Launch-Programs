@@ -5,7 +5,7 @@ import Landing from "./Modules/Landing";
 export const makeMainRoutes = () => {
     return (
         <Switch>
-            <Route path="/" exact render={(props) => <Landing {...props} />}/>
+            <Route path="/" render={(props) => <Landing {...props} />}/>
             <Redirect to="/"/>
         </Switch>
     );
