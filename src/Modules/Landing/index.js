@@ -36,12 +36,22 @@ class Landing extends React.Component {
     render() {
         return (
             <>
-                <div className={'col'}>
+                <div className={classes.Heading}>
                     <h3 className={classes.Bold}>SpaceX Launch Programs</h3>
                 </div>
                 <div className={classes.Container}>
                     <Filter/>
-                    <LaunchCardSection data={this.state.data}/>
+                    {
+                        !this.state.loading ?
+                            // 0 ?
+                            <LaunchCardSection data={this.state.data}/>
+                            :
+                            <div className={classes.Cont}>
+                                <div className={classes.LoaderContainer}>
+                                    <div className={classes.Loader}></div>
+                                </div>
+                            </div>
+                    }
                 </div>
             </>
         )

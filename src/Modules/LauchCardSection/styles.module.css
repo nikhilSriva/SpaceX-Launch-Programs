@@ -1,8 +1,6 @@
 .Container {
-    background-color: #fff;
     display: flex;
-    flex-direction: column;
-    padding: 0 20px 0 20px;
+    justify-content: center;
 }
 
 .Bold {
@@ -44,26 +42,35 @@
 }
 
 .FlexWrap {
+    flex: 1;
     display: flex;
     flex-wrap: wrap;
+    justify-content: flex-start;
 }
 
 .Card {
-    width: 16rem;
-    padding: 20px;
-    margin: 10px
+    width: 100%;
+    padding: 15px;
+    height: 100%;
+}
+
+.CardContainer {
+    padding: 10px;
+
 }
 
 .logoContainer {
     background-color: #f2f6fa;
 }
 
-@media screen and (max-width: 700px) {
-    .Card {
-        width: 240px;
-        margin: 10px 0 10px 0;
-        /*padding: 16px;*/
-        /*background-color: red;*/
-        /*max-width: 1440px;*/
+@media screen and (min-width: 700px) {
+    .CardContainer {
+        flex-basis: 50%;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .CardContainer {
+        flex-basis: 25%;
     }
 }

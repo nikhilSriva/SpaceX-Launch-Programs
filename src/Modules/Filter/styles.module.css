@@ -1,10 +1,16 @@
 .Container {
+    padding-top: 10px;
+    padding-right: 10px;
+}
+
+.SubContainer {
     background-color: #fff;
     display: flex;
-    max-width: 240px;
     flex-direction: column;
-    padding: 0 20px 0 20px;
-
+    padding: 10px 20px 10px 20px;
+    overflow: hidden;
+    /*margin-top: 10px;*/
+    /*margin-right: 10px;*/
 }
 
 .Bold {
@@ -28,7 +34,7 @@
     display: flex;
     flex-wrap: wrap;
     padding: 5px 0 5px 0;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
 
 }
@@ -37,7 +43,7 @@
     background-color: #62c487;
     height: 34px;
     width: 80px;
-    margin: 5px;
+    margin: 9px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -47,7 +53,7 @@
 }
 
 .FilterButtonSelected {
-    background-color: #599e71;
+    background-color: #49805d;
 
 }
 
@@ -65,5 +71,22 @@
     }
     to {
         background-color: #599e71;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .FilterSection {
+        justify-content: center;
+    }
+}
+
+
+@media screen and (min-width: 700px) {
+    .Container {
+        max-width: 260px;
+    }
+
+    .FilterButton {
+        margin: 5px;
     }
 }
