@@ -59,6 +59,11 @@
 
 }
 
+.CardBodySection {
+    display: flex;
+    padding: 5px 0;
+}
+
 .logoContainer {
     background-color: #f2f6fa;
 }
