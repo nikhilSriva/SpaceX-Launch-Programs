@@ -36,7 +36,7 @@ const LaunchCardSection = ({data}) => {
                                                         ))
                                                     }
                                                 </ul>
-                                                : <span>N/A</span>
+                                                : <span> N/A</span>
                                         }
                                     </div>
 

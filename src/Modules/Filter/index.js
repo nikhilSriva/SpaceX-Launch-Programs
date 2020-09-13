@@ -97,7 +97,7 @@ class Filter extends React.Component {
                                         onClick={() => {
                                             let value = `land_success=${!!item}`
                                             console.log('v', value)
-                                            if (this.state.selectedLaunchStatus?.includes(!!item))
+                                            if (this.state.selectedLandStatus?.includes(!!item))
                                                 this.setState({selectedLandStatus: null}, this.handleRouteChangeWithFilters)
                                             else
                                                 this.setState({selectedLandStatus: value}, this.handleRouteChangeWithFilters)
