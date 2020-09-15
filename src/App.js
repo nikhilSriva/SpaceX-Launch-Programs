@@ -8,7 +8,7 @@ class App extends Component {
         const routes = makeMainRoutes()
         return (
             <BrowserRouter>
-                <div className={'Content'}>
+                <div id={'mainWrapper'} className={'Content'}>
                     {routes}
                 </div>
             </BrowserRouter>

@@ -4,20 +4,33 @@ import Filter from "../Filter";
 import LaunchCardSection from "../LaunchCardSection";
 import axios from "axios";
 import {withRouter} from 'react-router-dom'
+import {isEmpty} from 'lodash'
 
 class Landing extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {}
+        this.state = {
+            limit: 10,
+            data: []
+        }
     }
 
-    fetchData = (limit = 10, filters = '') => {
+    fetchData = (limit = this.state.limit, filters = '',) => {
+        console.log('filer', filters)
         this.setState({loading: true});
         axios
             .get(`https://api.spacexdata.com/v3/launches?limit=${limit}&${filters}`)
             .then(res => {
-                console.log('Data', res.data);
-                this.setState({data: res.data, loading: false})
+                // console.log('Data', res./**/data);
+                if (res?.status === 200 && Array.isArray(res?.data)) {
+                    if (isEmpty(filters))
+                        this.setState({data: [...this.state.data, ...res.data], loading: false})
+                    else
+                        this.setState({data: res.data, loading: false, limit: 10})
+
+                }
+                document.addEventListener('scroll', this.trackScrolling);
+
             })
             .catch(e => {
                 console.log('Error while fetching data ', e)
@@ -27,11 +40,28 @@ class Landing extends React.Component {
 
 
     componentDidMount() {
+        document.addEventListener('scroll', this.trackScrolling);
         this.props.history.listen((location, action) => {
-            this.fetchData(10, location.pathname?.substr(1))
-
+            this.setState({appliedFilters: location.pathname?.substr(1)}, () => this.fetchData(10, this.state.appliedFilters))
         });
-        this.fetchData(10)
+        this.fetchData(this.state.limit)
+    }
+
+    trackScrolling = () => {
+        const wrappedElement = document.getElementById('mainWrapper');
+        if (this.isBottom(wrappedElement)) {
+            console.log('header bottom reached');
+            document.removeEventListener('scroll', this.trackScrolling);
+            this.setState((state) => ({
+                limit: state.limit + 10
+            }), () => {
+                this.fetchData(this.state.limit, this.state.appliedFilters)
+            })
+        }
+    };
+
+    isBottom(el) {
+        return el.getBoundingClientRect().bottom <= window.innerHeight;
     }
 
     render() {
